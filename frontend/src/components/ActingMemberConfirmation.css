@@ -1,0 +1,81 @@
+
+.acting-member-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-color: #D1FFBD;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.approve-btn {
+  background-color: #d1fae5 !important;
+  color: #047857 !important;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.approve-btn:hover {
+  background-color: #a7f3d0 !important;
+}
+
+.reject-btn {
+  background-color: #fee2e2 !important;
+  color: #b91c1c !important;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.reject-btn:hover {
+  background-color: #fecaca !important;
+}
+
+.no-data {
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+}
+
+.dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  border: 1px solid #e5e7eb;
+}
+
+.dialog-body {
+  margin-top: 12px;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+
+.blurred-button {
+  opacity: 0.4;        
+  pointer-events: none; 
+}
