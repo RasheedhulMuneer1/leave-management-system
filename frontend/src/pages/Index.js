@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
-
+  
   return (
     <div className="min-h-screen bg- gradient-to-br from-background to-muted flex items-center justify-center p-4">
       <div className="max-w-7xl w-full space-y-8">
         <div className="text-center space-y-4">
           <div className="flex justify-center">
-            <Shield className="h-16 w-16 text-primary" />
+            <Shield className="h-16 w-16 text-primary" />  
           </div>
           <h1 className="text-4xl font-bold text-foreground">Leave Management System</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -33,7 +33,6 @@ const Index = () => {
             <CardContent className="text-center">
             
               <ul className="space-y-2" align="center" >
-
                 <li>Create and manage users</li>
                 <li>Assign establishment admins</li>
                 <li>Generate comprehensive reports</li>

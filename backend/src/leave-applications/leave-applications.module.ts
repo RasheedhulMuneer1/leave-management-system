@@ -9,7 +9,7 @@ import { User } from 'entities/user.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([LeaveApplication, Role, Establishment, User])],
-  // NotificationsModule,
+  // NotificationsModule,  
   providers: [LeaveApplicationsService],
   controllers: [LeaveApplicationsController],
 })

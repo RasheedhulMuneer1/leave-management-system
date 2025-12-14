@@ -61,29 +61,34 @@ export default function Login() {
   return (
     <div className="container" >
       <div className="card" >
-        {/* Header  */}
-        <div className="text-center mb-6">
+        
+
+        <div className="text-center mb-4">
           <img
             src={armyEmblem}
             alt="Sri Lanka Army Emblem"
             style={{ width: "120px", height: "120px", objectFit: "contain" }}
           />
-          <h1 className="mb-1">Sri-Lanka Army</h1>
+          <h1 className="mb-0">Sri-Lanka Army</h1>
           <h2>Leave Management System</h2>
         </div>
 
-        <div className="alert" >
+         <div className="alert" >
           <AlertTriangle />
           <div className="alert-description" >
             <strong>SECURE NETWORK ACCESS ONLY</strong><br />
-            Accessible only via SL Army Data Network (SLADN) or authorized VPN.
+            Accessible only via SL Army Data Network (SLADN) or authorized VPN
           </div>
         </div>
+        
 
-        {/* Login Form  */}
+        {/* Login Form  */}
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="userName">Username</label>
+          
+          <div className="w-full flex flex-col items-start mt-2 text-left">
+            <label htmlFor="userName" className="w-full text-left">
+              Username
+            </label>
             <input
               id="userName"
               name="userName"
@@ -92,12 +97,14 @@ export default function Login() {
               value={form.userName}
               onChange={handleChange}
               required
-              className="input-field"
+              className="input-field w-full"
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="password">Password</label>
+          <div className="w-full flex flex-col items-start mt-1 text-left">
+            <label htmlFor="password" className="w-full text-left">
+              Password
+            </label>
             <input
               id="password"
               name="password"
@@ -106,23 +113,29 @@ export default function Login() {
               value={form.password}
               onChange={handleChange}
               required
-              className="input-field"
+              className="input-field w-full"
             />
           </div>
 
+
           {error && <div className="alert">{error}</div>}
 
-          <button type="submit" className="button" disabled={isLoading}>
+
+          
+          <button type="submit" className="button mt-1" disabled={isLoading}>
+
             {isLoading ? "Logging in..." : "Login"}
           </button>
-          <p className="text-center mt-2">Use your official credentials</p>
-        </form>
+          <p className="text-center mt-1">Use your official credentials</p>
 
-        {/* Footer  */}
-        <div className="footer">
+          <div className="footer mb-2"> 
+          <br/>
+
           <p>© 2025 Sri Lanka Army</p>
           <p>Directorate of Information Technology</p>
         </div>
+        </form>
+        
       </div>
     </div>
   );

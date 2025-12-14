@@ -243,8 +243,8 @@ export default function ActingMemberConfirmation() {
                   <TableHead>Role</TableHead>
                   <TableHead>Rank</TableHead>
                   <TableHead>Leave Type</TableHead>
-                  <TableHead>Period & No of Days</TableHead>
-                  {/* <TableHead>Days</TableHead> */}
+                  <TableHead>Period </TableHead>
+                  <TableHead>Days</TableHead>
                   <TableHead>Reason</TableHead>
                   <TableHead>Address</TableHead>
                   <TableHead>Contact</TableHead>
