@@ -1,17 +1,28 @@
-services:  
-  oracle-db:
+# version: "3.9"
+
+services:
+  oracle_db:
     image: gvenzl/oracle-xe:21-slim
     container_name: oracle_db
     ports:
       - "1521:1521"
     environment:
       ORACLE_PASSWORD: adminpassword
+      ORACLE_PDB: XEPDB1
     volumes:
       - oracle-data:/opt/oracle/oradata
     networks:
       - backend-network
     healthcheck:
-      disable: true 
+      test:
+        [
+          "CMD-SHELL",
+          "echo 'SELECT 1 FROM dual;' | sqlplus -s system/adminpassword@//localhost:1521/XEPDB1"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 180s
 
   backend:
     build: ./backend
@@ -20,13 +31,15 @@ services:
     ports:
       - "3002:3002"
     environment:
-      DB_HOST: oracle-db
+      PORT: 3002
+      DB_HOST: oracle_db       
       DB_PORT: 1521
-      DB_USERNAME: system
+      DB_USER: system
       DB_PASSWORD: adminpassword
       DB_SERVICE: XEPDB1
     depends_on:
-      - oracle-db
+      oracle_db:
+        condition: service_healthy
     networks:
       - backend-network
 
@@ -43,6 +56,7 @@ services:
 
 networks:
   backend-network:
+    driver: bridge
 
 volumes:
   oracle-data:

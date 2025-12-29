@@ -1,14 +1,35 @@
-node_modules
-dist
+# node_modules
+# dist
+# .git
+# .gitignore
+# Dockerfile
+# docker-compose.yml
+# npm-debug.log
+# yarn-debug.log
+# yarn-error.log
+# .env
+# .vscode
+# coverage
+# *.tgz
+# *.md
+
+
+
+
+# Ignore git
 .git
 .gitignore
-Dockerfile
-docker-compose.yml
-npm-debug.log
-yarn-debug.log
-yarn-error.log
+
+# Ignore env
 .env
-.vscode
-coverage
-*.tgz
-*.md
+
+# Ignore logs
+npm-debug.log
+yarn-error.log
+
+# Ignore source files (we only run compiled app)
+src
+test
+
+# dist
+# node_modules

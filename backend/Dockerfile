@@ -1,35 +1,25 @@
-# # 1. Base image
-# FROM node:18
-
-# # 2. Set working directory
-# WORKDIR /app
-
-# # 3. Copy package.json and install dependencies
-# COPY package*.json ./
-# RUN npm install
-
-# # 4. Copy rest of the backend code
-# COPY . .
-
-# # 5. expose port
-# EXPOSE 3000
-
-# # 6. start the NestJS app
-# CMD ["npm", "run", "start:prod"]
-
-
-
-FROM node:18-alpine
+# Use lightweight Node image
+FROM node:20-alpine
 
 WORKDIR /app
 
+# Copy package files for caching
 COPY package*.json ./
-RUN npm install
 
-COPY . .
+# Install dependencies
+RUN npm install --legacy-peer-deps
 
-RUN npm run build
+# Copy built files and node_modules
+COPY dist ./dist
+COPY node_modules ./node_modules
+COPY package.json ./
+COPY wait-for-oracle.sh ./
 
+# Give execution permission to wait script inside container
+RUN chmod +x ./wait-for-oracle.sh
+
+# Expose NestJS port
 EXPOSE 3002
 
-CMD ["npm", "run", "start:prod"]
+# Start container with wait-for-oracle script
+CMD ["./wait-for-oracle.sh"]
